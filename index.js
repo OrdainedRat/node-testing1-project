@@ -120,12 +120,12 @@ class Seasons {
     
   }
 }
-const summer = new Seasons()
-console.log(summer.next())
-console.log(summer.next())
-console.log(summer.next())
-console.log(summer.next())
-console.log(summer.next())
+// const summer = new Seasons()
+// console.log(summer.next())
+// console.log(summer.next())
+// console.log(summer.next())
+// console.log(summer.next())
+// console.log(summer.next())
 class Car {
   /**
    * [Exercise 6A] Car creates a car object
@@ -137,6 +137,8 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.name = name
+    this.mpg = mpg
   }
 
   /**
@@ -154,7 +156,10 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    this.odometer = this.odometer + distance
+    return this.odometer
   }
+  
 
   /**
    * [Exercise 6C] Adds gallons to the tank
@@ -171,6 +176,9 @@ class Car {
     // ✨ implement
   }
 }
+const focus = new Car('focus', 20, 30)
+console.log(focus.drive(150))
+console.log(focus.drive(150))
 
 /**
  * [Exercise 7] Asynchronously resolves whether a number is even
