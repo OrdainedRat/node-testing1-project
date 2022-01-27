@@ -8,8 +8,16 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-}
+  const result = {}
+  const entries = Object.entries(obj)
+  entries.forEach(([key, value]) => {
+    result[key] = value.trim()
+ })
 
+ return result
+ 
+}
+trimProperties({ name: '  jane  ' })
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
  * @param {object} obj - an object with properties that are strings
@@ -20,8 +28,13 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for(let prop in obj) {
+    obj[prop] = obj[prop].trim()
+  }
+  console.log(obj)
+  return obj
 }
-
+trimPropertiesMutation({ name: '  mike  ' })
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
  * @param {object[]} integers - an array of objects
@@ -32,8 +45,13 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  const num = []
+  integers.forEach(int => {
+    num.push (int.integer)
+  })
+  return Math.max(...num)
 }
-
+console.log(findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]))
 class Counter {
   /**
    * [Exercise 4A] Counter creates a counter
