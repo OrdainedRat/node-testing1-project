@@ -51,7 +51,7 @@ function findLargestInteger(integers) {
   })
   return Math.max(...num)
 }
-console.log(findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]))
+// console.log(findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]))
 class Counter {
   /**
    * [Exercise 4A] Counter creates a counter
@@ -59,8 +59,9 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.num = initialNumber;
   }
-
+  
   /**
    * [Exercise 4B] Counter.prototype.countDown counts down to zero
    * @returns {number} - the next count, does not go below zero
@@ -75,8 +76,12 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.num > 0 ? this.num-- : 0
   }
 }
+// const counter = new Counter(5)
+// console.log(counter.countDown())
+// console.log(counter.countDown())
 
 class Seasons {
   /**
@@ -84,6 +89,8 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = ['summer', 'fall', 'winter', 'spring']
+    this.currentSeason = 0
   }
 
   /**
@@ -100,9 +107,25 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    const result = this.seasons[this.currentSeason]
+    if(this.currentSeason === 3) {
+      this.currentSeason = 0
+    } else {
+      this.currentSeason++ 
+    }
+    return result
+    
+    
+   
+    
   }
 }
-
+const summer = new Seasons()
+console.log(summer.next())
+console.log(summer.next())
+console.log(summer.next())
+console.log(summer.next())
+console.log(summer.next())
 class Car {
   /**
    * [Exercise 6A] Car creates a car object
